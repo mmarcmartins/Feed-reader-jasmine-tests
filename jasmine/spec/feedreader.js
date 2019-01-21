@@ -60,7 +60,7 @@
           */
 
           describe('The menu',function(){
-
+          	
           	let element = document.getElementsByClassName("menu-hidden")[0];
           	let menu = document.getElementsByClassName("menu-icon-link")[0];
 
@@ -71,7 +71,7 @@
 
           	it('check if menu is toggled when clicked',function(){
           		menu.click();          		
-          		expect($(element).hasClass()).toBe(false);
+          		expect($(element).hasClass("menu-hidden")).toBe(false);
           		menu.click();
           		expect($(element).hasClass('menu-hidden')).toBe(true);
 
