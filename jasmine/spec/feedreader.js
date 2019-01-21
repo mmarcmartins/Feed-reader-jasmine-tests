@@ -75,9 +75,9 @@
 
           	it('check if menu is toggled when clicked',function(){
           		menu.click();          		
-          		expect($(element).attr('class')).toBe('');
+          		expect($(element).hasClass()).toBe(false);
           		menu.click();
-          		expect($(element).attr('class')).toBeDefined();
+          		expect($(element).hasClass('menu-hidden')).toBe(true);
 
           	});
 
@@ -119,16 +119,24 @@
 
          describe('New Feed Selection', function(){
 
-         	beforeEach(function(done){
+         	let feedOne , feedTwo;         	
+
+         	beforeEach(function(done){   
+
          		loadFeed(1, function(){
-         			done();
-         		});
+         			feedOne = document.querySelector(".entry-link");
+         			 	 loadFeed(0,function(){
+         			 	 	feedTwo = document.querySelector(".entry-link");
+         			 	 	done();
+         			 	 });
+         			});     
+
          	});
 
-         	it('Check if feed changes when another source is selected', function(done){            		
-         	   	let entriesDoc = document.querySelectorAll(".feed .entry");
-				expect(entriesDoc.length).toBeGreaterThan(0);					
-         		done();         		      			
+         	it('Check if feed changes when another source is selected', function(done){            	         
+         	    expect(feedOne).not.toBe(feedTwo);		      	   	
+         		done();            		
+         	   	   			
          	});
 
          });
