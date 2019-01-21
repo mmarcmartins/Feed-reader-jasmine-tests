@@ -125,10 +125,10 @@
          		});
          	});
 
-         	it('Check if feed changes when another source is selected', function(done){      		         		
-         		done();         		
-         		let entriesDoc = document.querySelectorAll(".feed .entry");
-				expect(entriesDoc.length).toBeGreaterThan(0);				
+         	it('Check if feed changes when another source is selected', function(done){            		
+         	   	let entriesDoc = document.querySelectorAll(".feed .entry");
+				expect(entriesDoc.length).toBeGreaterThan(0);					
+         		done();         		      			
          	});
 
          });
